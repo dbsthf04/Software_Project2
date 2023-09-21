@@ -5,7 +5,7 @@ unsigned int count, toggle;
 int toggle_state(int toggle);
 
 void setup() {
-  pinMode(PIN_LED, OUTPUT);  // LED 핀을 출력으로 설정
+  pinMode(PIN_LED, OUTPUT);  
   Serial.begin(115200);
   while(!Serial){
     ;
