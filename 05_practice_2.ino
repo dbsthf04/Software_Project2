@@ -6,23 +6,32 @@ int toggle_state(int toggle);
 void setup() {
   pinMode(PIN_LED, OUTPUT);  
   Serial.begin(115200);
-  digitalWrite(PIN_LED,0);
-  delay(1000);
+ 
   while(!Serial){
     ;
   }
+  
   Serial.println("Hello World!");
   count = toggle = 0;
+  
 }
 
 void loop() {
-   if (count < 10) {
+  
+  int desiredLoopCount = 10;
+  digitalWrite(PIN_LED, 0);
+  delay(1000);
+
+  for (int i = 0; i < desiredLoopCount; i++) {
     Serial.println(++count);
     toggle = toggle_state(toggle);
     digitalWrite(PIN_LED, toggle);
     delay(100);
-  } else {
-    digitalWrite(PIN_LED, 1);
+  }
+
+  digitalWrite(PIN_LED, 1);
+  delay(1000);
+  while (1) {
   }
 }
 
